@@ -22,6 +22,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-layout`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -35,12 +36,20 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        google: {
+          families: [`Montserrat:200, 300, 400, 500, 600, 700`],
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-shopify`,
       options: {
         // The domain name of your Shopify shop. This is required.
         // Example: 'gatsby-source-shopify-test-shop' if your Shopify address is
         // 'gatsby-source-shopify-test-shop.myshopify.com'.
-        shopName: '1804teststore',
+        shopName: 'testshopppl',
 
         // An API access token to your Shopify shop. This is required.
         // You can generate an access token in the "Manage private apps" section

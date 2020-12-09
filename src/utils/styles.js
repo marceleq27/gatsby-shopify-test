@@ -18,7 +18,7 @@ export const GlobalStyle = props => (
         margin: 0;
       }
       html {
-        font-family: sans-serif;
+        font-family: 'Montserrat', sans-serif;
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
       }
@@ -27,7 +27,7 @@ export const GlobalStyle = props => (
 )
 
 export const Img = styled(Image)`
-  max-width: 100 %;
+  max-width: 100%;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;

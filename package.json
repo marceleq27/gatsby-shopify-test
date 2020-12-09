@@ -10,6 +10,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.22",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.17.4",
     "gatsby-image": "^2.2.29",
     "gatsby-plugin-google-analytics": "^2.0.13",
@@ -19,9 +20,12 @@
     "gatsby-plugin-react-helmet": "^3.1.13",
     "gatsby-plugin-root-import": "^2.0.5",
     "gatsby-plugin-sharp": "^2.2.32",
+    "gatsby-plugin-styled-components": "^3.6.0",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.1.33",
     "gatsby-source-shopify": "^3.0.24",
     "gatsby-transformer-sharp": "^2.3.0",
+    "isomorphic-fetch": "^3.0.0",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
@@ -30,7 +34,8 @@
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
     "set-value": "^2.0.1",
-    "shopify-buy": "^2.8.0"
+    "shopify-buy": "^2.8.0",
+    "styled-components": "^5.2.1"
   },
   "keywords": [
     "gatsby",
