@@ -1,0 +1,41 @@
+{
+    "parser": "babel-eslint",
+    "extends": ["airbnb", "airbnb/hooks", "prettier", "prettier/react"],
+    "env": {
+      "jest": true
+    },
+    "globals": { "document": true, "window": true },
+    "rules": {
+      "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+      "import/prefer-default-export": 0,
+      "react/jsx-props-no-spreading": 0,
+      "no-nested-ternary": 0,
+      "react/state-in-constructor": 0,
+      "react/forbid-prop-types": 0
+    },
+    "settings": {
+      "import/resolver": {
+        "alias": {
+          "map": [
+            ["src", "./src"],
+            ["layout", "./src/components/layout"],
+            ["components", "./src/components"],
+            ["images", "./src/images"],
+            ["theme", "./src/theme"],
+            // ["css", "./src/css"],
+            // ["hooks", "./src/hooks"],
+            // ["data", "./src/data"],
+            // ["api", "./src/api"],
+            ["pages", "./src/pages"],
+            ["templates", "./src/templates"],
+            // ["hoc", "./src/hoc"],
+            ["utils", "./src/utils"],
+            ["provider", "./src/provider"],
+            ["context", "./src/context"]
+          ],
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      }
+    }
+  }
+  

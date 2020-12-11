@@ -1,20 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 
-import StoreContext from '~/context/StoreContext'
-import LineItem from './LineItem'
+import StoreContext from 'context/StoreContext';
+import LineItem from './LineItem';
 
 const Cart = () => {
   const {
     store: { checkout },
-  } = useContext(StoreContext)
+  } = useContext(StoreContext);
 
   const handleCheckout = () => {
-    window.open(checkout.webUrl)
-  }
+    window.open(checkout.webUrl);
+  };
 
   const lineItems = checkout.lineItems.map(item => (
     <LineItem key={item.id.toString()} item={item} />
-  ))
+  ));
 
   return (
     <div>
@@ -28,14 +28,11 @@ const Cart = () => {
       <h2>Total</h2>
       <p>$ {checkout.totalPrice}</p>
       <br />
-      <button
-        onClick={handleCheckout}
-        disabled={checkout.lineItems.length === 0}
-      >
+      <button onClick={handleCheckout} disabled={checkout.lineItems.length === 0} type="button">
         Check out
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

@@ -1,45 +1,39 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+/* eslint-disable react/no-danger */
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import SEO from '~/components/seo'
-import ProductForm from '~/components/ProductForm'
-import {
-  Img,
-  Container,
-  TwoColumnGrid,
-  GridLeft,
-  GridRight,
-} from '~/utils/styles'
-import { ProductTitle, ProductDescription } from './styles'
+import SEO from 'components/seo';
+import ProductForm from 'components/ProductForm';
+import UI from 'components/ui';
+import { ProductTitle, ProductDescription } from './styles';
 
 const ProductPage = ({ data }) => {
-  const product = data.shopifyProduct
+  const product = data.shopifyProduct;
   return (
     <>
       <SEO title={product.title} description={product.description} />
-      <Container>
-        <TwoColumnGrid>
-          <GridLeft>
+      <UI.Container>
+        <div>
+          <div>
             {product.images.map(image => (
-              <Img
+              <UI.Img
                 fluid={image.localFile.childImageSharp.fluid}
                 key={image.id}
                 alt={product.title}
               />
             ))}
-          </GridLeft>
-          <GridRight>
+          </div>
+          <div>
             <ProductTitle>{product.title}</ProductTitle>
-            <ProductDescription
-              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-            />
+            <ProductDescription dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
             <ProductForm product={product} />
-          </GridRight>
-        </TwoColumnGrid>
-      </Container>
+          </div>
+        </div>
+      </UI.Container>
     </>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query($handle: String!) {
@@ -90,6 +84,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default ProductPage
+export default ProductPage;

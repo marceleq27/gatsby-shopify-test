@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import Cart from '~/components/Cart'
-import { Container } from '~/utils/styles'
+import Cart from 'components/Cart';
+import UI from 'components/ui';
 
 const CartPage = () => (
-  <Container>
+  <UI.Container>
     <h1>Cart</h1>
     <Cart />
-  </Container>
-)
+  </UI.Container>
+);
 
-export default CartPage
+export default CartPage;

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from 'styled-components';
 
 export const ProductTitle = styled.h1`
   font-size: 2.25rem;
@@ -8,10 +8,10 @@ export const ProductTitle = styled.h1`
   font-weight: 400;
   margin: 0 0 0.5rem;
   line-height: 1.4;
-`
+`;
 
 export const ProductDescription = styled.div`
   margin-top: 40px;
   font-family: 'Helvetica', 'Helvetica', sans-serif;
   font-weight: 300;
-`
+`;

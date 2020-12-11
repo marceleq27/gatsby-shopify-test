@@ -1,8 +1,8 @@
-const path = require('path')
+const path = require('path');
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -21,7 +21,12 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-layout`,
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layout/index.js`),
+      },
+    },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -39,7 +44,7 @@ module.exports = {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         google: {
-          families: [`Montserrat:200, 300, 400, 500, 600, 700`],
+          families: [`Montserrat:200, 300, 400, 500, 600, 700`, `Yeseva One`],
         },
       },
     },
@@ -69,19 +74,33 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
-        '~': path.join(__dirname, 'src/'),
+        src: path.join(__dirname, 'src'),
+        pages: path.join(__dirname, 'src/pages'),
+        components: path.join(__dirname, 'src/components'),
+        images: path.join(__dirname, 'src/images'),
+        theme: path.join(__dirname, 'src/theme'),
+        // data: path.join(__dirname, 'src/data'),
+        // hooks: path.join(__dirname, 'src/hooks'),
+        // api: path.join(__dirname, 'src/api'),
+        // css: path.join(__dirname, 'src/css'),
+        layout: path.join(__dirname, 'src/components/layout'),
+        templates: path.join(__dirname, 'src/templates'),
+        // hoc: path.join(__dirname, 'src/hoc'),
+        utils: path.join(__dirname, 'src/utils'),
+        context: path.join(__dirname, 'src/context'),
+        provider: path.join(__dirname, 'src/provider'),
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-134421805-1',
-        anonymize: true,
-        respectDNT: true,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: 'UA-134421805-1',
+    //     anonymize: true,
+    //     respectDNT: true,
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
   ],
-}
+};

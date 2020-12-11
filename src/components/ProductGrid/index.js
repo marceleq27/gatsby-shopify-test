@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import React, { useContext } from 'react';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 
-import StoreContext from '~/context/StoreContext'
-import { Grid, Product, Title, PriceTag } from './styles'
-import { Img } from '~/utils/styles'
+import StoreContext from 'context/StoreContext';
+import UI from 'components/ui';
+import { Grid, Product, Title, PriceTag } from './styles';
 
 const ProductGrid = () => {
   const {
     store: { checkout },
-  } = useContext(StoreContext)
+  } = useContext(StoreContext);
   const { allShopifyProduct } = useStaticQuery(
     graphql`
       query {
@@ -37,15 +37,15 @@ const ProductGrid = () => {
           }
         }
       }
-    `
-  )
+    `,
+  );
 
   const getPrice = price =>
     Intl.NumberFormat(undefined, {
       currency: checkout.currencyCode ? checkout.currencyCode : 'EUR',
       minimumFractionDigits: 2,
       style: 'currency',
-    }).format(parseFloat(price ? price : 0))
+    }).format(parseFloat(price || 0));
 
   return (
     <Grid>
@@ -63,22 +63,19 @@ const ProductGrid = () => {
             <Product key={id}>
               <Link to={`/product/${handle}/`}>
                 {firstImage && firstImage.localFile && (
-                  <Img
-                    fluid={firstImage.localFile.childImageSharp.fluid}
-                    alt={handle}
-                  />
+                  <UI.Img fluid={firstImage.localFile.childImageSharp.fluid} alt={handle} />
                 )}
               </Link>
               <Title>{title}</Title>
               <PriceTag>{getPrice(firstVariant.price)}</PriceTag>
             </Product>
-          )
+          ),
         )
       ) : (
         <p>No Products found!</p>
       )}
     </Grid>
-  )
-}
+  );
+};
 
-export default ProductGrid
+export default ProductGrid;
